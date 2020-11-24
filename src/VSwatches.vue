@@ -114,9 +114,6 @@
               :class="fallbackInputClass"
               :value="internalValue"
               :type="fallbackInputType"
-              @input="
-                e => updateSwatch(e.target.value, { fromFallbackInput: true })
-              "
             />
           </span>
           <button
@@ -603,6 +600,7 @@ export default {
       this.$emit("close", this.internalValue);
     },
     onFallbackButtonClick() {
+      this.updateSwatch(this.internalValue, { fromFallbackInput: false })
       this.hidePopover();
     },
     // Called programmatically
